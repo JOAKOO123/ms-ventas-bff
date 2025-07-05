@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import cl.duoc.ms_ventas_bff.model.dto.PedidoDTO;
 
-@FeignClient(name = "ms-ventas-bs", url ="http://localhost:8181/api/pedidos")
+@FeignClient(name = "ms-ventas-bs", url ="http://localhost:8181", path="/api/pedidos")
 public interface VentasBsFeignClient {
 
     @GetMapping("/{id}")
@@ -18,6 +18,4 @@ public interface VentasBsFeignClient {
 
     @PostMapping("/pedidos")
     public HttpEntity<PedidoDTO> crearPedido(@RequestBody PedidoDTO pedidoDTO);
-
-
 }
